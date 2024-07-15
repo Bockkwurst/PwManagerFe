@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'pirulen';
-  src: url("/public/fonts/pirulen.otf");
+  src: url("assets/fonts/pirulen.otf");
 }
 
 @font-face {
   font-family: 'glitch';
-  src: url("/public/fonts/Glitch.ttf");
+  src: url("assets/fonts/Glitch.ttf");
 }
 
 @font-face {
   font-family: 'crush';
-  src: url("/public/fonts/Crush.ttf");
+  src: url("assets/fonts/Crush.ttf");
 }
 
 html, body {
@@ -40,6 +40,6 @@ body {
   --error: #f87d7d;
   --success: #89f87d;
   --headline: #651943;
-  --text: #824A21;
-  --text-highlighted: #D7A47D;
+  --text-highlighted: #824A21;
+  --text: #D7A47D;
 }

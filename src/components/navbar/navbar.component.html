@@ -1,1 +1,21 @@
-<p>navbar works!</p>
+<nav>
+  <ul class="navbar">
+    <div class="nav-brand-containter">
+      <li>
+        <a routerLink="/home" class="navbar-brand">PW-Vault</a>
+      </li>
+    </div>
+    <button class="hamburger-menu" (click)="toggleMenu()">☰</button>
+    <div class="nav-link-container" [ngClass]="{'open': isMenuOpen}">
+      <li>
+        <a routerLink="/login" class="nav-link" (click)="toggleMenu()" [ngClass]="{'open': isMenuOpen}">Login</a>
+      </li>
+      <li>
+        <a routerLink="/register" class="nav-link" (click)="toggleMenu()" [ngClass]="{'open': isMenuOpen}">Register</a>
+      </li>
+      <li>
+        <a routerLink="/contact" class="nav-link" (click)="toggleMenu()" [ngClass]="{'open': isMenuOpen}">Contact</a>
+      </li>
+    </div>
+  </ul>
+</nav>

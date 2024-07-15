@@ -1,0 +1,46 @@
+.default-button-container {
+  margin: 10px;
+}
+
+.buttonClass {
+  display: flex;
+  font: inherit;
+  padding: 0.75em 3em;
+  background: var(--deep-sea);
+  border: 0.1em solid var(--midnight-blue);
+  border-radius: 100vw;
+  cursor: pointer;
+  transition: background-color 250ms;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--text);
+  font-family: var(--pirulen);
+  box-shadow: 3px 3px 3px 3px var(--shadow);
+}
+
+.buttonClass:hover,
+.buttonClass:focus-visible {
+  background: var(--dark-teal);
+}
+
+.buttonClass > span {
+  z-index: -1;
+  width: 33.333%;
+  height: 100%;
+  background: transparent;
+  opacity: .5;
+}
+
+.buttonClass:active {
+  box-shadow: 3px 3px 3px 3px inset var(--shadow);
+}
+
+@media (max-width: 600px) {
+  .buttonClass {
+    scale: 70%;
+  }
+  .default-button-container{
+    margin: 0;
+  }
+}
