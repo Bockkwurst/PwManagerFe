@@ -1,0 +1,32 @@
+.register {
+  background-color: var(--midnight-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px 25vw;
+  height: 80vh;
+  width: 50vw;
+  border-radius: 2%;
+  box-shadow: 3px 3px 3px 3px var(--shadow);
+}
+
+.register-title {
+  font-family: var(--pirulen);
+  color: var(--text);
+  text-shadow: 4px 4px 4px 4px var(--shadow);
+  margin: 40px;
+}
+
+.register-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.item-label {
+  font-family: var(--pirulen);
+  color: var(--text);
+}
+
+

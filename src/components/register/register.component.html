@@ -1,1 +1,55 @@
-<p>register works!</p>
+<div class="register">
+  <h1 class="register-title">Registrieren</h1>
+  <div class="register-card-body">
+    <form (ngSubmit)="onSubmitReg()" #registerForm="ngForm">
+      <div class="register-group">
+        <label class="item-label" for="username">Username</label>
+        <input type="text" [(ngModel)]="user.UserName"
+               class="register-control"
+               id="username"
+               name="username"
+               placeholder="Username"
+               required #username="ngModel">
+      </div>
+      <div class="register-group">
+        <label class="item-label" for="firstName">Vorname</label>
+        <input type="text" [(ngModel)]="user.FirstName"
+               class="register-control"
+               id="firstName"
+               name="firstName"
+               placeholder="Vorname"
+               required #firstName="ngModel">
+      </div>
+      <div class="register-group">
+        <label class="item-label" for="firstName">Nachname</label>
+        <input type="text" [(ngModel)]="user.LastName"
+               class="register-control"
+               id="lastName"
+               name="lastName"
+               placeholder="Nachname"
+               required #lastName="ngModel">
+      </div>
+      <div class="register-group">
+        <label class="item-label" for="email">Email</label>
+        <input type="text" [(ngModel)]="user.Email"
+               class="register-control"
+               id="email"
+               name="email"
+               placeholder="Email"
+               required #email="ngModel"
+        >
+      </div>
+      <div class="register-group">
+        <label class="item-label" for="password">Passwort</label>
+        <input type="password" [(ngModel)]="user.Password"
+               class="register-control"
+               id="password"
+               name="password"
+               placeholder="Passwort"
+               required #password="ngModel">
+      </div>
+      <app-default-button type="submit" [buttonText]="'Registrieren'" [buttonClass]="'register-button'"
+      ></app-default-button>
+    </form>
+  </div>
+</div>
