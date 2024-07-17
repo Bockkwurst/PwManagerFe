@@ -20,8 +20,9 @@ export class AuthService {
       .pipe(
         map(response => {
           console.log('Response from backend:', response);
-          if (response && response.token) {
+          if (response && response.token && response.role) {
             localStorage.setItem('token', response.token);
+            localStorage.setItem('role', response.role);
           }
           return response;
         }),
@@ -31,6 +32,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -42,6 +44,18 @@ export class AuthService {
 
   getAuthToken(): string | null {
     return localStorage.getItem('token');
+  }
+
+  getUserRole(): string | null {
+    return localStorage.getItem('role');
+  }
+
+  isAuthehticated(): boolean {
+    return !!this.getAuthToken();
+  }
+
+  isAdmin(): boolean {
+    return this.getUserRole() === 'Admin';
   }
 }
 

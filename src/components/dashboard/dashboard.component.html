@@ -1,1 +1,41 @@
-<p>dashboard works!</p>
+<div class="password-view-container">
+<div class="password-view-table">
+  <h1>Deine Passwörter auf einen Blick</h1>
+</div>
+  <form class="password-view-search">
+    <div class="searchbar" (submit)="search()">
+      <input type="search" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Suche" />
+      <button type="submit">go</button>
+    </div>
+  </form>
+  <table>
+    <thead>
+    <tr>
+      <th>Service</th>
+      <th>Login</th>
+      <th>Passwort</th>
+      <th>Notiz</th>
+      <th>Aktiv</th>
+      <th>Erstellt<br/>am</th>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+    </thead>
+  </table>
+  <div class="table-body-wrapper">
+    <table>
+      <tbody class="table-body">
+      <tr *ngFor="let item of tableData"
+          (click)="navigateToDetail(item.Id)">
+        <td>{{ item.service }}</td>
+        <td>{{ item.login }}</td>
+        <td>{{ item.password }}</td>
+        <td>{{ item.notes }}</td>
+        <td>{{ item.active }}</td>
+        <td>{{ item.createdOn }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

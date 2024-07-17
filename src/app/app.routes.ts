@@ -5,6 +5,7 @@ import {RegisterComponent} from "../components/register/register.component";
 import {ContactComponent} from "../components/contact/contact.component";
 import {DashboardComponent} from "../components/dashboard/dashboard.component";
 import {AuthGuard} from "../services/AuthGuard";
+import {DetailsComponent} from "../components/details/details.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -12,5 +13,6 @@ export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'contact', component: ContactComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]}
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'details/:Id', component: DetailsComponent, canActivate: [AuthGuard]}
 ];
