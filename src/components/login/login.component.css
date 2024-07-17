@@ -1,0 +1,25 @@
+.login-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--midnight-blue);
+  height: 50vh;
+  width: 50vw;
+  border-radius: 2%;
+  box-shadow: 3px 3px 3px 3px var(--shadow);
+  margin: auto;
+  margin-top: 15vh;
+}
+
+.login-title {
+  font-family: var(--pirulen);
+  color: var(--text);
+  margin: 40px;
+}
+
+.login-form-container {
+  display: flex;
+  justify-content: space-between;
+
+}

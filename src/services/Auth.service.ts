@@ -8,16 +8,18 @@ import {catchError} from "rxjs/operators";
 })
 
 export class AuthService {
-  private loginUrl = 'http://localhost:8081/login';
+  private loginUrl = 'http://localhost:5087/api/user/login';
 
   constructor(private http: HttpClient) {
   }
 
-  login(username: string, password: string): Observable<any> {
+  login(UserName: string, Password: string): Observable<any> {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    return this.http.post<any>(this.loginUrl, {username, password}, {headers})
+    console.log('Sending to Backend:', {username: UserName, password: Password});
+    return this.http.post<any>(this.loginUrl, {username: UserName, password: Password}, {headers})
       .pipe(
         map(response => {
+          console.log('Response from backend:', response);
           if (response && response.token) {
             localStorage.setItem('token', response.token);
           }

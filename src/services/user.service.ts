@@ -8,7 +8,7 @@ export class UserService {
   private usersUrl: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8081/users';
+    this.usersUrl = 'http://localhost:5087/api/user';
   }
 
   public findAll(){
