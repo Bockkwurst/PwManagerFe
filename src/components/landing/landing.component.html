@@ -1,1 +1,30 @@
-<p>landing works!</p>
+<div class="landing-container">
+  <div class="head-container">
+    <img src="/img/pwmanagerlogo.svg" alt="Logo">
+    <h3>Secure your passwords with</h3>
+    <h1>PW-Vault</h1>
+  </div>
+  <div class="infobox">
+    <div class="infobox-text">
+
+      <h4>
+        First Deploy!
+      </h4>
+      <p class="infotext">
+        Ich freue mich, nun endlich die erste Version meines zukünftigen Passwort Managers online zu stellen.
+        <br/>
+        Bisher steht nur die Landing Page auf der du gerade bist zur verfügung,<br/>
+        aber die Links der Navbar funktionieren bereits und führen dich zu den entsprechenden Seiten.<br/>
+        Ich arbeite mit Hochdruck an der Fertigstellung der Registrierung, des Logins und dem Deployment der
+        Datenbank<br/>
+        und des Backends. Ich hoffe, dass ich bald die nächsten Schritte des Passwort Managers online stellen kann.<br/>
+      </p>
+    </div>
+  </div>
+  <div class="buttons">
+    <app-default-button class="login-button" [buttonText]="'Login'" [buttonClass]="'login-button'"
+                        (buttonClick)="onLoginClick()"></app-default-button>
+    <app-default-button class="register-button" [buttonText]="'Registrieren'" [buttonClass]="'register-button'"
+                        (buttonClick)="onRegisterClick()"></app-default-button>
+  </div>
+</div>

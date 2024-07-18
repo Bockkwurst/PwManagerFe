@@ -6,6 +6,7 @@
   </div>
   <form (submit)="login()">
     <div class="login-form-container">
+<div class="login-form">
       <label class="login-form-label">
         Username
       </label>
@@ -14,6 +15,7 @@
              [(ngModel)]="user.UserName"
              name="UserName"
              placeholder="Username">
+
       <label class="login-form-label">
         Passwort
       </label>
@@ -22,6 +24,7 @@
              [(ngModel)]="user.Password"
              name="Password"
              placeholder="Passwort">
+</div>
     </div>
     <app-default-button type="submit" [buttonText]="'Login'" [buttonClass]="'login-button'"
     ></app-default-button>
