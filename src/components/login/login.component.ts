@@ -4,6 +4,7 @@ import {AuthService} from '../../services/Auth.service';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {User} from "../../models/user";
+import { TokenService } from "../../services/token.service";
 
 
 @Component({
@@ -28,15 +29,12 @@ export class LoginComponent {
   }
 
   login(): void {
-    const { UserName, Password } = this.user;
-
-    this.authService.login(UserName, Password).subscribe({
+    this.authService.login(this.user.UserName, this.user.Password).subscribe({
       next: (response) => {
-        localStorage.setItem('token', response.token);
         this.router.navigate(['/dashboard']);
       },
-      error: (err) => {
-        console.error('Login failed', err);
+      error: () => {
+        alert('Login failed');
       }
     });
   }

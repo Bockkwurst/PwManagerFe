@@ -1,54 +1,52 @@
-<div class="register">
-  <h1 class="register-title">Registrieren</h1>
-  <div class="register-card-body">
-    <form (ngSubmit)="onSubmitReg()" #registerForm="ngForm">
-      <div class="register-group">
-        <label class="item-label" for="username">Username</label>
-        <input type="text" [(ngModel)]="user.UserName"
+<div class="add-entry">
+  <h1 class="add-entry-title">Passwort erstellen</h1>
+  <div class="add-entry-card-form">
+    <form (ngSubmit)="onSubmitAdd()" #addEntryForm="ngForm">
+      <div class="add-entry-group">
+        <label class="item-label" for="service">Service</label>
+        <input type="text" [(ngModel)]="passwords.Service"
                class="register-control"
-               id="username"
-               name="username"
-               placeholder="Username"
-               required #username="ngModel">
+               id="service"
+               name="service"
+               placeholder="Service"
+               required #service="ngModel">
       </div>
-      <div class="register-group">
-        <label class="item-label" for="firstName">Vorname</label>
-        <input type="text" [(ngModel)]="user.FirstName"
+      <div class="add-entry-group">
+        <label class="item-label" for="username-email">Username/Email</label>
+        <input type="text" [(ngModel)]="passwords.Login"
                class="register-control"
-               id="firstName"
-               name="firstName"
-               placeholder="Vorname"
-               required #firstName="ngModel">
+               id="username-email"
+               name="username-email"
+               placeholder="Username/Email"
+               required #usernameEmail="ngModel">
       </div>
-      <div class="register-group">
-        <label class="item-label" for="firstName">Nachname</label>
-        <input type="text" [(ngModel)]="user.LastName"
-               class="register-control"
-               id="lastName"
-               name="lastName"
-               placeholder="Nachname"
-               required #lastName="ngModel">
-      </div>
-      <div class="register-group">
-        <label class="item-label" for="email">Email</label>
-        <input type="text" [(ngModel)]="user.Email"
-               class="register-control"
-               id="email"
-               name="email"
-               placeholder="Email"
-               required #email="ngModel"
-        >
-      </div>
-      <div class="register-group">
+      <div class="add-entry-group">
         <label class="item-label" for="password">Passwort</label>
-        <input type="password" [(ngModel)]="user.Password"
+        <input type="text" [(ngModel)]="passwords.Password"
                class="register-control"
                id="password"
                name="password"
-               placeholder="Passwort"
+               placeholder="Password"
                required #password="ngModel">
       </div>
-      <app-default-button type="submit" [buttonText]="'Registrieren'" [buttonClass]="'register-button'"
+      <div class="add-entry-group">
+        <label class="item-label" for="notes">Notizen</label>
+        <input type="text" [(ngModel)]="passwords.Notes"
+               class="register-control"
+               id="notes"
+               name="notes"
+               placeholder="Notizen"
+               required #notes="ngModel"
+        >
+      </div>
+      <div class="add-entry-group">
+        <label class="item-label">Aktiv</label>
+        <input type="checkbox">
+      </div>
+      <app-default-button type="submit" [buttonText]="'Erstellen'" [buttonClass]="'add-button'"
+      ></app-default-button>
+      <label class="password-message">{{ "passwords.Password" }}</label>
+      <app-default-button type="button" [buttonText]="'Passwort generieren'" (click)="generatePassword()" [buttonClass]="'generate-button'"
       ></app-default-button>
     </form>
   </div>

@@ -1,0 +1,40 @@
+.add-entry {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--midnight-blue);
+  margin: 30px auto;
+  height: 80vh;
+  width: 50vw;
+  box-shadow: 3px 3px 3px 3px var(--shadow);
+  border-radius: 2%;
+}
+
+.add-entry-title {
+  font-family: var(--pirulen);
+  color: var(--text);
+  margin: 40px;
+}
+
+.add-entry-card-form {
+  font-family: var(--pirulen);
+}
+
+.add-entry-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+
+label {
+  color: var(--text);
+}
+
+app-default-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
