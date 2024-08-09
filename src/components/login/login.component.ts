@@ -29,11 +29,15 @@ export class LoginComponent {
   }
 
   login(): void {
+    console.log('login attempr with username:', this.user.UserName);
     this.authService.login(this.user.UserName, this.user.Password).subscribe({
       next: (response) => {
+        console.log('login successful, response:', response)
         this.router.navigate(['/dashboard']);
+        alert('Login successful!')
       },
-      error: () => {
+      error: (error) => {
+        console.error('login failed, error', error);
         alert('Login failed');
       }
     });

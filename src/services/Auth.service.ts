@@ -15,13 +15,11 @@ export class AuthService {
 
   login(UserName: string, Password: string): Observable<any> {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    console.log('Sending to Backend:', {username: UserName, password: Password});
     return this.http.post<any>(this.loginUrl, {username: UserName, password: Password}, {headers})
       .pipe(
         map(response => {
-          console.log('Response from backend:', response);
           if (response && response.token && response.role) {
-            localStorage.setItem('token', response.token);
+            this.setToken(response.token);
             localStorage.setItem('role', response.role);
           }
           return response;
@@ -31,8 +29,16 @@ export class AuthService {
   }
 
   logout(): void {
+    this.deleteToken();
     localStorage.removeItem('token');
-    localStorage.removeItem('role');
+  }
+
+  private setToken(token:string): void {
+    document.cookie = `token=${token}; path=/;`;
+  }
+
+  private deleteToken(): void {
+    document.cookie = 'token=; path=/; expires=Thu, 01 Jan 1979 00:00:00 GMT';
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -43,7 +49,7 @@ export class AuthService {
   }
 
   getAuthToken(): string | null {
-    return localStorage.getItem('token');
+    return document.cookie.getToken('token');
   }
 
   getUserRole(): string | null {
