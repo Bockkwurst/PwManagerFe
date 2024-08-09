@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {map, Observable, of, pipe} from "rxjs";
 import {catchError} from "rxjs/operators";
+import {TokenService} from "./token.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,52 +11,42 @@ import {catchError} from "rxjs/operators";
 export class AuthService {
   private loginUrl = 'http://localhost:5087/api/user/login';
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenService) {
   }
 
   login(UserName: string, Password: string): Observable<any> {
-    const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    console.log('Sending to Backend:', {username: UserName, password: Password});
-    return this.http.post<any>(this.loginUrl, {username: UserName, password: Password}, {headers})
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any>(this.loginUrl, { username: UserName, password: Password }, { headers })
       .pipe(
         map(response => {
-          console.log('Response from backend:', response);
-          if (response && response.token && response.role) {
-            localStorage.setItem('token', response.token);
-            localStorage.setItem('role', response.role);
+          if (response && response.token) {
+            this.tokenService.setTokenAsCookie('jwt', response.token, 7);
+          }
+          if (response && response.role) {
+            this.tokenService.setTokenAsCookie('role', response.role, 7);
           }
           return response;
         }),
-        catchError(this.handleError<any>('login'))
       );
   }
 
   logout(): void {
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      return of(result as T);
-    }
+    this.tokenService.deleteTokenCookie('jwt');
+    this.tokenService.deleteTokenCookie('role');
   }
 
   getAuthToken(): string | null {
-    return localStorage.getItem('token');
+    return this.tokenService.getTokenFromCookie('jwt');
   }
 
   getUserRole(): string | null {
-    return localStorage.getItem('role');
+    return this.tokenService.getTokenFromCookie('role');
   }
 
-  isAuthehticated(): boolean {
-    return !!this.getAuthToken();
-  }
-
-  isAdmin(): boolean {
-    return this.getUserRole() === 'Admin';
+  isAuthehticated() {
+    return this.tokenService.getTokenFromCookie('jwt');
   }
 }
 

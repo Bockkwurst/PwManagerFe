@@ -10,7 +10,7 @@ export class RegisterService {
   private usersUrl: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:5087/api/user/register'
+    this.usersUrl = 'http://localhost:5087/api/user/register';
   }
 
   public save(user: User) {
