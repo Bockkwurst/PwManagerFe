@@ -27,6 +27,10 @@ export class AuthService {
           if (response && response.role) {
             this.tokenService.setTokenAsCookie('role', response.role, 7);
           }
+          if (response && response.userId) {
+            console.log('Setting userId:', response.userId);
+            this.tokenService.setTokenAsCookie('userId', response.userId, 7);
+          }
           return response;
         }),
       );
@@ -35,6 +39,7 @@ export class AuthService {
   logout(): void {
     this.tokenService.deleteTokenCookie('jwt');
     this.tokenService.deleteTokenCookie('role');
+    this.tokenService.deleteTokenCookie('userId');
   }
 
   getAuthToken(): string | null {
@@ -45,8 +50,18 @@ export class AuthService {
     return this.tokenService.getTokenFromCookie('role');
   }
 
-  isAuthehticated() {
-    return this.tokenService.getTokenFromCookie('jwt');
+  getUserId(): string | null {
+    const userId = this.tokenService.getTokenFromCookie('userId');
+    console.log('Retrieved userId:', userId);
+    return userId;
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.getAuthToken();
+  }
+
+  isAdmin(): boolean {
+    return this.getUserRole() === 'Admin';
   }
 }
 

@@ -7,19 +7,19 @@
     </div>
     <button class="hamburger-menu" (click)="toggleMenu()">☰</button>
     <div class="nav-link-container" [ngClass]="{'open': isMenuOpen}">
-      <li *ngIf="!authService.isAuthehticated()">
+      <li *ngIf="!authService.isAuthenticated()">
         <a routerLink="/login" class="nav-link" (click)="toggleMenu()" [ngClass]="{'open': isMenuOpen}">Login</a>
       </li>
-      <li *ngIf="!authService.isAuthehticated()">
+      <li *ngIf="!authService.isAuthenticated()">
         <a routerLink="/register" class="nav-link" (click)="toggleMenu()" [ngClass]="{'open': isMenuOpen}">Register</a>
       </li>
-      <li *ngIf="authService.isAuthehticated()">
+      <li *ngIf="authService.isAuthenticated()">
         <a routerLink="/create" class="nav-link" (click)="toggleMenu()" [ngClass]="{'open': isMenuOpen}">Create</a>
       </li>
-      <li *ngIf="authService.isAuthehticated()">
+      <li *ngIf="authService.isAuthenticated()">
         <a routerLink="/account" class="nav-link" (click)="toggleMenu()" [ngClass]="{'open': isMenuOpen}">Account</a>
       </li>
-      <li *ngIf="authService.isAuthehticated()">
+      <li *ngIf="authService.isAuthenticated()">
         <a class="nav-link" (click)="toggleMenu()" (click)="logout()" [ngClass]="{'open': isMenuOpen}">Logout</a>
       </li>
       <li>
