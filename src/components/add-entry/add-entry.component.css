@@ -1,36 +1,40 @@
-.login-card {
+.add-entry {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: var(--midnight-blue);
-  height: 50vh;
+  margin: 30px auto;
+  height: 80vh;
   width: 50vw;
-  border-radius: 2%;
   box-shadow: 3px 3px 3px 3px var(--shadow);
-  margin: auto;
-  margin-top: 15vh;
+  border-radius: 2%;
 }
 
-.login-title {
+.add-entry-title {
   font-family: var(--pirulen);
   color: var(--text);
   margin: 40px;
 }
 
-.login-form-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
+.add-entry-card-form {
   font-family: var(--pirulen);
 }
 
-.login-form {
+.add-entry-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+
+label {
+  color: var(--text);
+}
+
+app-default-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
 }
-
-

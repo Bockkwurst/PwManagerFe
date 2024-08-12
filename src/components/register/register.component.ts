@@ -27,10 +27,7 @@ export class RegisterComponent {
   }
 
   onSubmitReg(){
-    this.registerService.save(this.user).subscribe(result => this.gotoHome);
-  }
-
-  gotoHome(){
-    this.router.navigate(['/home']);
+    this.registerService.save(this.user).subscribe(result =>
+      this.router.navigate(['/home']));
   }
 }

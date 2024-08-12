@@ -1,0 +1,53 @@
+<div class="add-entry">
+  <h1 class="add-entry-title">Passwort erstellen</h1>
+  <div class="add-entry-card-form">
+    <form (ngSubmit)="onSubmitAdd()" #addEntryForm="ngForm">
+      <div class="add-entry-group">
+        <label class="item-label" for="service">Service</label>
+        <input type="text" [(ngModel)]="passwords.Service"
+               class="register-control"
+               id="service"
+               name="service"
+               placeholder="Service"
+               required #service="ngModel">
+      </div>
+      <div class="add-entry-group">
+        <label class="item-label" for="username-email">Username/Email</label>
+        <input type="text" [(ngModel)]="passwords.Login"
+               class="register-control"
+               id="username-email"
+               name="username-email"
+               placeholder="Username/Email"
+               required #usernameEmail="ngModel">
+      </div>
+      <div class="add-entry-group">
+        <label class="item-label" for="password">Passwort</label>
+        <input type="text" [(ngModel)]="passwords.Password"
+               class="register-control"
+               id="password"
+               name="password"
+               placeholder="Password"
+               required #password="ngModel">
+      </div>
+      <div class="add-entry-group">
+        <label class="item-label" for="notes">Notizen</label>
+        <input type="text" [(ngModel)]="passwords.Notes"
+               class="register-control"
+               id="notes"
+               name="notes"
+               placeholder="Notizen"
+               required #notes="ngModel"
+        >
+      </div>
+      <div class="add-entry-group">
+        <label class="item-label">Aktiv</label>
+        <input type="checkbox">
+      </div>
+      <app-default-button type="submit" [buttonText]="'Erstellen'" [buttonClass]="'add-button'"
+      ></app-default-button>
+      <label class="password-message">{{ "passwords.Password" }}</label>
+      <app-default-button type="button" [buttonText]="'Passwort generieren'" (click)="generatePassword()" [buttonClass]="'generate-button'"
+      ></app-default-button>
+    </form>
+  </div>
+</div>
